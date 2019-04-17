@@ -61,7 +61,7 @@ public class Model {
 		
 		if (L == tutti.size()) {
 			int somma = sommaPeople(parziale);
-			if (somma >= best) {
+			if (somma > best) {
 				best = somma;
 				soluzione = new ArrayList<PowerOutages>(parziale);
 			}
