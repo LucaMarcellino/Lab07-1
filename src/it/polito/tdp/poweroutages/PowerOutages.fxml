@@ -1,18 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BorderPane prefHeight="499.0" prefWidth="555.0"
-	xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="it.polito.tdp.poweroutages.PowerOutagesController">
-	<left>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-	</left>
-	<bottom>
-
-	</bottom>
-	<center>
-
-	</center>
-	<top>
-
-	</top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.poweroutages.PowerOutagesController">
+   <top>
+      <Label prefHeight="25.0" prefWidth="152.0" text="TdP Insurance Unit" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <bottom>
+      <TextArea fx:id="txtResult" editable="false" prefHeight="238.0" prefWidth="646.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </TextArea>
+   </bottom>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="316.0" prefWidth="369.0">
+               <children>
+                  <ImageView fitHeight="275.0" fitWidth="315.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="20.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../../../../../img/NERC-map.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox prefHeight="316.0" prefWidth="410.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Select NERC" />
+                        <ChoiceBox fx:id="cbxNerc" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Max years" />
+                        <TextField fx:id="txtYears">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Max hours" />
+                        <TextField fx:id="txtHours">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnAnalize" mnemonicParsing="false" onAction="#doAnalize" text="Worst Case Analysis" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
 </BorderPane>

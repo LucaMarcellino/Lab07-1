@@ -13,7 +13,7 @@ import com.zaxxer.hikari.HikariDataSource;
  */
 public class ConnectDB {
 
-	private static final String jdbcURL = "jdbc:mysql://localhost/poweroutages";
+	private static final String jdbcURL = "jdbc:mysql://localhost/poweroutages?serverTimezone=UTC";
 	private static HikariDataSource ds;
 
 	public static Connection getConnection() {
@@ -24,7 +24,7 @@ public class ConnectDB {
 
 			ds.setJdbcUrl(jdbcURL);
 			ds.setUsername("root");
-			ds.setPassword("root");
+			ds.setPassword("sascia");
 
 			// configurazione MySQL
 			ds.addDataSourceProperty("cachePrepStmts", "true");
@@ -34,9 +34,7 @@ public class ConnectDB {
 		}
 
 		try {
-
 			return ds.getConnection();
-
 		} catch (SQLException e) {
 			System.err.println("Errore connessione al DB");
 			throw new RuntimeException(e);
