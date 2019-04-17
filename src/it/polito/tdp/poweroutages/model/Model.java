@@ -37,6 +37,9 @@ public class Model {
 		this.ore = ore;
 		
 		Nerc n = podao.getNerc(nerc);
+		if (n == null)
+			return "Il NERC non è stato trovato nel DB!";
+		
 		n.setPo(podao.getPowerOutagesList(n));
 		tutti = n.getPo();
 		
@@ -56,8 +59,7 @@ public class Model {
 	
 	private void ricorsione(List<PowerOutages> parziale, int L) {
 		
-		if (sommaOre(parziale) > ore || diffAnni(parziale) > anni)
-			return ;
+		// ad ogni livello L decido se aggiungere l'evento o no
 		
 		if (L == tutti.size()) {
 			int somma = sommaPeople(parziale);
@@ -68,13 +70,14 @@ public class Model {
 			return ;
 		}
 		
-		ricorsione(parziale, L+1);
+		ricorsione(parziale, L+1);  // non aggiungo
 		
 		
 		parziale.add(tutti.get(L));
-			
-		ricorsione(parziale, L+1);
-			
+		
+		if (sommaOre(parziale) <= ore && diffAnni(parziale) <= anni)
+			ricorsione(parziale, L+1);    // aggiungo
+			 
 		parziale.remove(tutti.get(L));
 		
 	}
