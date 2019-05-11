@@ -77,8 +77,8 @@ public class Model {
 		
 		if (sommaOre(parziale) <= ore && diffAnni(parziale) <= anni)
 			ricorsione(parziale, L+1);    // aggiungo
-			 
-		parziale.remove(tutti.get(L));
+		
+		parziale.remove(parziale.size()-1);
 		
 	}
 	
